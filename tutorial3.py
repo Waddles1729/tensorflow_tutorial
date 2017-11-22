@@ -5,4 +5,6 @@ import tensorflow as tf
 # Declare list of features. We only have one numeric feature. There are many
 # other types of columns that are more complicated and useful.
 feature_columns = [tf.feature_column.numeric_column("x", shape=[1])]
-print(feature_columns)
+sess = tf.Session()
+
+print(sess.run(feature_columns))
