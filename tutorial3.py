@@ -21,7 +21,7 @@ y_train = np.array([0., -1., -2., -3.])
 x_eval = np.array([2., 5., 8., 1.])
 y_eval = np.array([-1.01, -4.1, -7, 0.])
 input_fn = tf.estimator.inputs.numpy_input_fn(
-    {"x": x_train}, y_train, batch_size=4, num_epochs=None, shuffle=True)
+    {"x": x_train}, y_train, batch_size=4, num_epochs=1000, shuffle=True)
 train_input_fn = tf.estimator.inputs.numpy_input_fn(
     {"x": x_train}, y_train, batch_size=4, num_epochs=1000, shuffle=False)
 eval_input_fn = tf.estimator.inputs.numpy_input_fn(
@@ -29,7 +29,7 @@ eval_input_fn = tf.estimator.inputs.numpy_input_fn(
 
 # We can invoke 1000 training steps by invoking the  method and passing the
 # training data set.
-estimator.train(input_fn=input_fn, steps=1000)
+estimator.train(input_fn=input_fn)
 
 # Here we evaluate how well our model did.
 train_metrics = estimator.evaluate(input_fn=train_input_fn)
